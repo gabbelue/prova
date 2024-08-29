@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+
+{% block title %}Página Inicial{% endblock %}
+
+{% block content %}
+<div class="welcome-section">
+    <h1 class="welcome-title">Bem-vindo à Escola</h1>
+</div>
+
+<div class="users-section">
+    <h2 class="users-title">Usuários Cadastrados</h2>
+    {% if usuarios %}
+    <table class="users-table">
+        <thead>
+            <tr>
+                <th>Nome</th>
+                <th>Email</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for usuario in usuarios %}
+            <tr>
+                <td>{{ usuario[0] }}</td>
+                <td>{{ usuario[1] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    {% else %}
+    <p class="no-users-message">Nenhum usuário cadastrado.</p>
+    {% endif %}
+</div>
+{% endblock %}
